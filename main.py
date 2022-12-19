@@ -1,15 +1,10 @@
-# from uvicorn import run
+from uvicorn import run
 from fastapi import FastAPI, Response
 import requests
 import requests_cache
 import requests_random_user_agent
-import os
-from deta import Deta
 
-# deta = Deta(os.getenv())
-# create and use as many Drives as you want!
-# insta_cache = deta.Drive("cache")
-requests_cache.install_cache("insta_cache", backend='sqlite', expire_after=60*60*24, match_headers=False, cache_control=False)
+requests_cache.install_cache("insta_cache", backend='sqlite', expire_after=60*60*24*30, match_headers=False, cache_control=False)
 
 # ========================== scraping the data ========================== 
 def UserInfo(user_name: str) -> dict:
@@ -61,6 +56,6 @@ def read_root(response: Response,user_name):
 
 
 if __name__ == "__main__":
-    import webbrowser
-    webbrowser.open("http://127.0.0.1:5500")
-#     run(app, host="127.0.0.1", port=5500)
+    # import webbrowser
+    # webbrowser.open("http://127.0.0.1:5500")
+    run(app, host="127.0.0.1", port=5500)
