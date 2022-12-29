@@ -11,22 +11,7 @@ def UserInfo(user_name: str) -> dict:
     reqUrl = f"https://www.instagram.com/api/v1/users/web_profile_info/?username={user_name}"
 
     headersList = {
-                    "accept": "*/*",
-                    "accept-encoding": "gzip, deflate, br",
-                    "accept-language": "en-US,en;q=0.6",
-                    "cookie": "ig_did=E0E9A21C-A45A-46DC-8911-5E199137F8B0; ig_nrcb=1; dpr=1.25; csrftoken=D6zBG6I6Vry5jGV67rEDSLkGsCUZyCEa; mid=Y61aPwALAAFW05FCaBCy7rRlKZA8; datr=PFqtYzrYYjq11_466YXZsaUo",
-                    "referer": f"https://www.instagram.com/{user_name}/",
-                    "sec-fetch-dest": "empty",
-                    "sec-fetch-mode": "cors",
-                    "sec-fetch-site": "same-origin",
-                    "sec-gpc": "1",
-                    # "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36",
-                    "x-asbd-id": "198387",
-                    "x-csrftoken": "SmW4ETW22IVvjTwCao7A1UsAObL7xGQu",
                     "x-ig-app-id": "936619743392459",
-                    "x-ig-www-claim": "0",
-                    "x-instagram-ajax": "1006680707",
-                    "x-requested-with": "XMLHttpRequest" 
                 }
 
     payload = f"username={user_name}"
