@@ -15,9 +15,15 @@ def UserInfo(user_name: str) -> dict:
                 }
 
     payload = f"username={user_name}"
-    resp = requests.get(reqUrl, data=payload,  headers=headersList)
-    from_cache = resp.from_cache
-    data = resp.json()
+    try:
+        resp = requests.get(reqUrl, data=payload,  headers=headersList)
+        from_cache = resp.from_cache
+        if resp.ok:
+            data = resp.json()
+        else: 
+            data = {"message": f"invalid user_name: {user_name}"}
+    except Exception as e:
+        data = {"message": f"invalid user_name: {user_name}", "error": str(e)}
     # return response.json()
     
     return data, from_cache
