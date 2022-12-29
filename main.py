@@ -14,8 +14,8 @@ def UserInfo(user_name: str) -> dict:
                     "accept": "*/*",
                     "accept-encoding": "gzip, deflate, br",
                     "accept-language": "en-US,en;q=0.6",
-                    "cookie": "ig_did=B53E4A33-B794-45BF-9256-502AE69A49AE; ig_nrcb=1; dpr=1.25; csrftoken=SmW4ETW22IVvjTwCao7A1UsAObL7xGQu; mid=Y4svWQALAAE1lXoDKjKaO06NFmAF",
-                    "referer": "https://www.instagram.com/gima_ashi/",
+                    "cookie": "ig_did=E0E9A21C-A45A-46DC-8911-5E199137F8B0; ig_nrcb=1; dpr=1.25; csrftoken=D6zBG6I6Vry5jGV67rEDSLkGsCUZyCEa; mid=Y61aPwALAAFW05FCaBCy7rRlKZA8; datr=PFqtYzrYYjq11_466YXZsaUo",
+                    "referer": f"https://www.instagram.com/{user_name}/",
                     "sec-fetch-dest": "empty",
                     "sec-fetch-mode": "cors",
                     "sec-fetch-site": "same-origin",
@@ -40,14 +40,14 @@ def UserInfo(user_name: str) -> dict:
 
 app = FastAPI(
     title="Instagram FastAPI",
-    description="This is simple instagram scraping API developed by Ritik Verma",
-    copyright="gritikverma331@gmai.com",
+    description="This is simple instagram scraping API developed by Vijay Raghuwanshi",
+    copyright="ervijayraghuwanshigmai.com",
     version="0.0.1",
     docs_url="/"
 
 )
 
-@app.get("/getUserInfo/{user_name}", description="Get the user info of Instagram user by it's name like \"gime_ashi\"", tags=["Instagram"])
+@app.get("/getUserInfo/{user_name}", description="Get the user info of Instagram user by it's name like \"gima_ashi\"", tags=["Instagram"])
 def read_root(response: Response,user_name):
     info, is_from_cache = UserInfo(user_name=str(user_name).strip())
     response.headers["from-cache"] = str(is_from_cache)
